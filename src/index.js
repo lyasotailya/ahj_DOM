@@ -11,7 +11,7 @@ function getRandomInt() {
 }
 
 function moveImage() {
-  const cells = document.querySelectorAll('.cell');
+    const cells = document.querySelectorAll('.cell');
     let currentCellWithImage = null;
     cells.forEach((cell, index) => {
       const img = cell.querySelector('img');
@@ -23,6 +23,7 @@ function moveImage() {
     if (currentCellWithImage !== null) {
       const currentImg = cells[currentCellWithImage].querySelector('img');
       currentImg.style.display = 'none';
+
     }
 
     let randomIndex;

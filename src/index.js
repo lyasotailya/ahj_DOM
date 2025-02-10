@@ -11,35 +11,34 @@ function getRandomInt() {
 }
 
 function moveImage() {
-    const cells = document.querySelectorAll('.cell');
-    let currentCellWithImage = null;
-    cells.forEach((cell, index) => {
-      const img = cell.querySelector('img');
-      if (img && img.style.display !== 'none') {
-        currentCellWithImage = index;
-      }
-    });
-
-    if (currentCellWithImage !== null) {
-      const currentImg = cells[currentCellWithImage].querySelector('img');
-      currentImg.style.display = 'none';
-
+  const cells = document.querySelectorAll('.cell');
+  let currentCellWithImage = null;
+  cells.forEach((cell, index) => {
+    const img = cell.querySelector('img');
+    if (img && img.style.display !== 'none') {
+      currentCellWithImage = index;
     }
+  });
 
-    let randomIndex;
-    do {
-        randomIndex = getRandomInt();
-    } while (randomIndex === currentCellWithImage);
+  if (currentCellWithImage !== null) {
+    const currentImg = cells[currentCellWithImage].querySelector('img');
+    currentImg.style.display = 'none';
+  }
 
-    const newImg = cells[randomIndex].querySelector('img');
-    if (newImg) {
-      newImg.style.display = 'block';
-    } else {
-      const img = document.createElement('img');
-      img.src = img_goblin;
-      img.style.display = 'block';
-      cells[randomIndex].appendChild(img);
-    }
+  let randomIndex;
+  do {
+    randomIndex = getRandomInt();
+  } while (randomIndex === currentCellWithImage);
+
+  const newImg = cells[randomIndex].querySelector('img');
+  if (newImg) {
+    newImg.style.display = 'block';
+  } else {
+    const img = document.createElement('img');
+    img.src = img_goblin;
+    img.style.display = 'block';
+    cells[randomIndex].appendChild(img);
+  }
 }
 
 window.onload = () => {
